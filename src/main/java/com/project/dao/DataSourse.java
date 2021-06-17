@@ -22,6 +22,5 @@ public class DataSourse {
             ResultSet resultSet = statement.executeQuery(sql);
             System.out.println(resultSet);
         }
-
     }
 }

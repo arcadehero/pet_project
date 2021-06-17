@@ -12,6 +12,6 @@ public interface CrudDao<T> {
 
     T create(T teacher);
 
-    T delete(Long id);
+    boolean delete(Long id);
 
 }

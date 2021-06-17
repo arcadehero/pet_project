@@ -13,6 +13,9 @@ private Integer quantity;
         this.quantity = quantity;
     }
 
+    public Book() {
+    }
+
     public Integer getId() {
         return id;
     }

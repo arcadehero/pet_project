@@ -26,7 +26,7 @@ public class LibraryDao implements  CrudDao<Library> {
     }
 
     @Override
-    public Library delete(Long id) {
-        return null;
+    public boolean delete(Long id) {
+        return true;
     }
 }

@@ -26,7 +26,7 @@ public class ReaderDao implements  CrudDao<Reader> {
     }
 
     @Override
-    public Reader delete(Long id) {
-        return null;
+    public boolean delete(Long id) {
+        return true;
     }
 }
