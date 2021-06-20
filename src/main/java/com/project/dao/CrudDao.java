@@ -2,16 +2,15 @@ package com.project.dao;
 
 import java.util.List;
 
-public interface CrudDao<T> {
+public interface CrudDao<K, E> {
 
-    T get(Long id);
+    E create(E teacher);
 
-    List<T> getAll();
+    E get(K id);
 
-    T update(Long id);
+    E update(E e);
 
-    T create(T teacher);
+    boolean delete(K id);
 
-    boolean delete(Long id);
-
+    List<E> getAll();
 }

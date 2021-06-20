@@ -1,26 +1,47 @@
 package com.project.domain;
 
+/**
+ * Этот класс реализует сущность Книга.
+ */
 public class Book {
-private Integer id;
-private String title;
-private String author;
-private Integer quantity;
+    /**
+     * Уникальный номер книги в БД.
+     */
+    private Long id;
+    /**
+     * Название книги.
+     */
+    private String title;
+    /**
+     * Автор книги.
+     */
+    private String author;
+    /**
+     * Сущность Читателя. Null означает, что книга никем не читается в данный момент.
+     */
+    private Reader reader;
 
-    public Book(Integer id, String title, String author, Integer quantity) {
+    public Book(Long id, String title, String author, Reader reader) {
         this.id = id;
         this.title = title;
         this.author = author;
-        this.quantity = quantity;
+        this.reader = reader;
+    }
+
+    public Book(String title, String author, Reader reader) {
+        this.title = title;
+        this.author = author;
+        this.reader = reader;
     }
 
     public Book() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -40,11 +61,22 @@ private Integer quantity;
         this.author = author;
     }
 
-    public Integer getQuantity() {
-        return quantity;
+    public Object getReader() {
+        return reader;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setReader(Object readerId) {
+        this.reader = reader;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", reader=" + reader +
+                '}';
     }
 }
+

@@ -1,22 +1,33 @@
 package com.project.domain;
 
+/**
+ * Этот класс реализует сущность Читатель.
+ */
 public class Reader {
-
-    private Integer id;
+    /**
+     * Уникальный номер читателя в БД.
+     */
+    private Long id;
+    /**
+     *Имя читателя.
+     */
     private String name;
-    private Integer booksOnHands;
 
-    public Reader(Integer id, String name, Integer booksOnHands) {
+    public Reader(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.booksOnHands = booksOnHands;
     }
 
-    public Integer getId() {
+
+    public Reader(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -28,11 +39,11 @@ public class Reader {
         this.name = name;
     }
 
-    public Integer getBooksOnHands() {
-        return booksOnHands;
-    }
-
-    public void setBooksOnHands(Integer booksOnHands) {
-        this.booksOnHands = booksOnHands;
+    @Override
+    public String toString() {
+        return "Reader{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
