@@ -96,7 +96,7 @@ public class LibraryService {
      *
      * @return список List<Book>
      */
-    public static List<Book> getAllReadersWithBooks() {
+    public List<Book> getAllReadersWithBooks() {
         return BookDao.getAllReadersWithBooks();
     }
 }

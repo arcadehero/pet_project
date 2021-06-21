@@ -1,10 +1,13 @@
 package com.project.dao;
 
-import com.project.domain.Book;
 import com.project.domain.Reader;
 import com.project.util.ConnectionManager;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,10 +20,8 @@ public class ReaderDao implements CrudDao<Long, Reader> {
 
     @Override
     public Reader create(Reader reader) {
-
         try (Connection connection = ConnectionManager.open();
-             PreparedStatement preparedStatement = connection.prepareStatement(SAVE_SQL, Statement.RETURN_GENERATED_KEYS)
-        ) {
+             PreparedStatement preparedStatement = connection.prepareStatement(SAVE_SQL, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, reader.getName());
             preparedStatement.executeUpdate();
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
@@ -73,8 +74,7 @@ public class ReaderDao implements CrudDao<Long, Reader> {
     @Override
     public Reader update(Reader reader) {
         try (Connection connection = ConnectionManager.open();
-             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SQL);
-        ) {
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SQL)) {
             preparedStatement.setString(1, reader.getName());
             preparedStatement.setLong(2, reader.getId());
             preparedStatement.executeUpdate();

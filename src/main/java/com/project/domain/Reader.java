@@ -4,10 +4,12 @@ package com.project.domain;
  * Этот класс реализует сущность Читатель.
  */
 public class Reader {
+
     /**
      * Уникальный номер читателя в БД.
      */
     private Long id;
+
     /**
      *Имя читателя.
      */

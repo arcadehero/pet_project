@@ -14,7 +14,6 @@ import java.util.List;
 
 public class BookDao implements CrudDao<Long, Book> {
     private static final String SAVE_SQL = "INSERT INTO book(title, author, reader_id) VALUES (?,?,?)";
-
     private static final String FIND_ALL_SQL = "SELECT b.id as bookID, b.title, b.author, r.name, r.id  as readerID" +
             " FROM book b left join reader r on b.reader_id = r.id";
     private static final String FIND_BY_ID_SQL = FIND_ALL_SQL + " WHERE id = ?";
@@ -116,7 +115,6 @@ public class BookDao implements CrudDao<Long, Book> {
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(FIND_ALL_READERS_WITH_BOOKS_SQL)) {
             ArrayList<Book> readersWithBooks = new ArrayList<>();
-
             while (resultSet.next()) {
                 readersWithBooks.add(new Book(resultSet.getLong("id"), resultSet.getString("title"),
                         resultSet.getString("author"),
@@ -138,7 +136,6 @@ public class BookDao implements CrudDao<Long, Book> {
         } catch (SQLException throwables) {
             throw new RuntimeException(throwables);
         }
-
     }
 
     public static boolean giveOutBook(Long readerId, String bookName) {
@@ -150,6 +147,5 @@ public class BookDao implements CrudDao<Long, Book> {
         } catch (SQLException throwables) {
             throw new RuntimeException(throwables);
         }
-
     }
 }

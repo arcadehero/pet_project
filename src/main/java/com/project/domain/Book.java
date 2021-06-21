@@ -4,18 +4,22 @@ package com.project.domain;
  * Этот класс реализует сущность Книга.
  */
 public class Book {
+
     /**
      * Уникальный номер книги в БД.
      */
     private Long id;
+
     /**
      * Название книги.
      */
     private String title;
+
     /**
      * Автор книги.
      */
     private String author;
+
     /**
      * Сущность Читателя. Null означает, что книга никем не читается в данный момент.
      */
@@ -65,7 +69,7 @@ public class Book {
         return reader;
     }
 
-    public void setReader(Object readerId) {
+    public void setReader(Reader reader) {
         this.reader = reader;
     }
 
